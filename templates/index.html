@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Main
+{% endblock %}
+
+{% block body %}
+<div class="container">
+        <form method="post">
+            <h2>Please introduce yourself</h2>
+            <div class="col-sm-6">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" required="True">
+                <div class="invalid-feedback">
+                    Valid name is required.
+                </div>
+                <div class="col-sm-6">
+                    <label for="surname" class="form-label">Surname<span class="text-muted">(Optional)</span></label>
+                    <input type="text" name="surname" class="form-control" id="surname" placeholder="Enter your surname">
+                    <div class="col-12">
+                        <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="you@example.com">
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-success" value="Say hello">
+            <a href="/show_all" class="btn btn-warning">Show all</a>
+        </form>
+{% endblock %}
