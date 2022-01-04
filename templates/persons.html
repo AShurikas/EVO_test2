@@ -15,11 +15,11 @@ All persons
             <p>{{ person.surname }}</p>
             <p>{{ person.email }}</p>
             <a href="/person/{{ person.id }}/delete" class="btn btn-danger">Delete person</a>
-            <a href="/" class="btn btn-success">Back</a>
         </div>
         {% endfor %}
     {% else %}
     <p>We have no persons yet</p>
     {% endif %}
+    <a href="/" class="btn btn-success">Back</a>
 </div>
 {% endblock %}
