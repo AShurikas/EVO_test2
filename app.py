@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 import os
-import psycopg2
 
 app = Flask(__name__)
 app.config.from_object('config.Config')
