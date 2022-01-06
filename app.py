@@ -1,13 +1,16 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///hello.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config.from_object('config.Config')
 db = SQLAlchemy(app)
+port = int(os.environ.get('PORT', 5000))
 
 
 class Person(db.Model):
+    __tablename__ = 'person'
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     surname = db.Column(db.String)
@@ -51,4 +54,4 @@ def post_delete(id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0', port=port)
