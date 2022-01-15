@@ -20,7 +20,7 @@ class Person(db.Model):
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
-        name = request.form['name']
+        name = request.form['name'].lower()
         surname = request.form['surname']
         email = request.form['email']
         person = Person(name=name, surname=surname, email=email)
@@ -31,7 +31,7 @@ def index():
         else:
             db.session.add(person)
             db.session.commit()
-            return render_template('/nice_to_meet_you.html', name=name, surname=surname)
+            return render_template('/nice_to_meet_you.html', name=name.title(), surname=surname.title())
     else:
         return render_template('index.html')
 
