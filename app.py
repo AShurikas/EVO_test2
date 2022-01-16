@@ -27,7 +27,7 @@ def index():
         exists = db.session.query(Person).filter_by(name=name).scalar() is not None
         if exists:
             person = Person.query.filter_by(name=name).first()
-            return render_template('already_seen_you.html', name=person.name)
+            return render_template('already_seen_you.html', name=person.name.title())
         else:
             db.session.add(person)
             db.session.commit()

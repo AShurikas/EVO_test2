@@ -11,8 +11,8 @@ All persons
     {% if persons|length > 0 %}
         {% for person in persons %}
         <div class="alert alert-info">
-            <h2>{{ person.name }}</h2>
-            <p>{{ person.surname }}</p>
+            <h2>{{ person.name.title() }}</h2>
+            <p>{{ person.surname.title() }}</p>
             <p>{{ person.email }}</p>
             <a href="/person/{{ person.id }}/delete" class="btn btn-danger">Delete person</a>
         </div>
